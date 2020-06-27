@@ -20,6 +20,7 @@ D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\testhost.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\nunit.framework.dll
+D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\WebDriver.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
@@ -86,12 +87,10 @@ D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\zh-Hans\Microsof
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csprojAssemblyReference.cache
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.AssemblyInfoInputs.cache
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.AssemblyInfo.cs
+D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csproj.CoreCompileInputs.cache
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csproj.CopyComplete
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.dll
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.pdb
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.genruntimeconfig.cache
-D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\WebDriver.dll
-D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csproj.CoreCompileInputs.cache

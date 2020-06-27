@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using OpenQA.Selenium.Interactions;
 
 namespace UnitMainSite
 {
@@ -15,6 +16,8 @@ namespace UnitMainSite
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("headless");
             driver = new ChromeDriver(chromeOptions);
+
+            driver.Url = "https://www.systell.pl/";
         }
 
         [TearDown]
@@ -30,7 +33,6 @@ namespace UnitMainSite
             string footer_path = "/html/body/div[2]/div/font/footer/div";
             try
             {
-                driver.Url = "https://www.systell.pl/";
                 IWebElement down_footer = driver.FindElement(By.XPath(footer_path));
 
                 footer_html = down_footer.GetAttribute("innerHTML");
@@ -48,7 +50,29 @@ namespace UnitMainSite
         [Test]
         public void UnitMainSite_ChangeLanguageToEnglish_ContaintsEnglishText()
         {
-            Assert.Pass();
+            string language_changer_id = @"menu-item-wpml-ls-751-pl";
+            string english_language_id = @"menu-item-wpml-ls-751-en";
+            Actions action = new Actions(driver);
+
+            // hover over language change
+            IWebElement language_changer = driver.FindElement(By.Id(language_changer_id));
+            action.MoveToElement(language_changer).Perform();
+
+            // press on English
+            IWebElement english_language = driver.FindElement(By.Id(english_language_id));
+            action.MoveToElement(english_language).Click().Build().Perform();
+
+            // get full body html
+            string english_site_body_path = "/html/body";
+            string english_site_body_html = "";
+
+            IWebElement english_site_body = driver.FindElement(By.XPath(english_site_body_path));
+            english_site_body_html = english_site_body.GetAttribute("innerHTML");
+            Console.WriteLine(english_site_body_html);
+
+            Assert.IsTrue(english_site_body_html.Contains(
+                    "agree to be contacted via telephone or email in order to be provided with commercial offers of Systell"
+                ));
         }
 
         [Test]
