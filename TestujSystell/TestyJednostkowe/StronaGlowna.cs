@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -78,7 +78,12 @@ namespace UnitMainSite
         [Test]
         public void UnitMainSite_PrivacyLinkRedirection_PathCorrect()
         {
-            Assert.Pass();
+            string privacy_text = @"Polityka prywatności";
+
+            IWebElement privacy = driver.FindElement(By.LinkText(privacy_text));
+            Console.WriteLine(privacy.GetAttribute("href"));
+
+            Assert.IsTrue(privacy.GetAttribute("href").ToLower().Contains("polityka-prywatnosci"));
         }
     }
 }

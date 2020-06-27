@@ -94,3 +94,4 @@ D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.cs
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.dll
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.pdb
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.genruntimeconfig.cache
+D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csprojAssemblyReference.cache
