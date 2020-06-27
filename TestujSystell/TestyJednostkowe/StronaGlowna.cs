@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace UnitMainSite
 {
@@ -12,7 +13,7 @@ namespace UnitMainSite
         public void Setup()
         {
             var chromeOptions = new ChromeOptions();
-            //chromeOptions.AddArguments("headless");
+            chromeOptions.AddArguments("headless");
             driver = new ChromeDriver(chromeOptions);
         }
 
@@ -25,9 +26,23 @@ namespace UnitMainSite
         [Test]
         public void UnitMainSite_MailAddressOnSite_True()
         {
-            driver.Url = "https://www.google.com/";
+            string footer_html = "";
+            string footer_path = "/html/body/div[2]/div/font/footer/div";
+            try
+            {
+                driver.Url = "https://www.systell.pl/";
+                IWebElement down_footer = driver.FindElement(By.XPath(footer_path));
 
-            Assert.Pass();
+                footer_html = down_footer.GetAttribute("innerHTML");
+                Console.WriteLine(footer_html);
+            }
+            catch (OpenQA.Selenium.NoSuchElementException) 
+            {
+                Console.WriteLine("Couldn't find footer element!!!");
+                Console.WriteLine("Searched in:\n\n{0}", footer_path);
+            }
+
+            Assert.IsTrue(footer_html.Contains("systell@systell.pl"));
         }
 
         [Test]
