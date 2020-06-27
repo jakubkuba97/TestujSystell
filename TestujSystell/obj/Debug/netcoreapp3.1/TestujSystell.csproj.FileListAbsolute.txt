@@ -89,8 +89,9 @@ D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\zh-Hant\Microsof
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csprojAssemblyReference.cache
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.AssemblyInfoInputs.cache
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.AssemblyInfo.cs
-D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csproj.CoreCompileInputs.cache
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csproj.CopyComplete
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.dll
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.pdb
 D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.genruntimeconfig.cache
+D:\PROJECTS\TestujSystell\TestujSystell\bin\Debug\netcoreapp3.1\WebDriver.dll
+D:\PROJECTS\TestujSystell\TestujSystell\obj\Debug\netcoreapp3.1\TestujSystell.csproj.CoreCompileInputs.cache
