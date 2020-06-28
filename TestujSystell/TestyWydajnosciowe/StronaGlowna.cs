@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.Linq;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
 
 namespace PerfoMainSite
 {
@@ -28,56 +29,78 @@ namespace PerfoMainSite
         }
 
         [Test]
-        public void PerfoMainSite_TenTimesDirectionToMorePostsLinkWithTimeLessThanSetSeconds_True()
+        public void PerfoMainSite_TenTimesDirectionToMorePosts_TimesLessThanFiveSec()
         {
-            const int threads = 1;
-            bool[] passed = new bool[threads];
-            int max_seconds = 3;
+            const int thread_number = 10;
+            const int max_seconds = 5;
+            bool[] passed = new bool[thread_number];
+            Thread[] threads = new Thread[thread_number];
 
-            foreach (int thread_num in Enumerable.Range(0, threads))
+            // declare threads
+            foreach (int thread_num in Enumerable.Range(0, thread_number))
             {
-                int result = TestOnce(thread_num);
-                if (result < max_seconds)
-                    passed[thread_num] = true;
-                else
-                    passed[thread_num] = false;
+                threads[thread_num] = new Thread( () =>
+                    {
+                        int res = TenTimesDirectionToMorePosts_OneIteration(thread_num);
+
+                        if (res <= max_seconds)
+                            passed[thread_num] = true;
+                        else
+                            passed[thread_num] = false;
+
+                        Console.WriteLine("Thread {0} finished with time {1}", thread_num, res);
+                    }
+                );
             }
 
-            bool all_true = true;
-            Console.WriteLine("");
-            foreach (bool x in passed)
+            // start threads
+            Console.WriteLine("Starting threads...");
+            foreach (var thread in threads)
             {
-                Console.WriteLine(x);
-                if (x == false)
-                {
-                    all_true = false;
-                    break;
-                }
+                thread.Start();
             }
 
-            Assert.IsTrue(all_true);
+            // wait for threads
+            foreach (var thread in threads)
+            {
+                thread.Join();
+            }
+
+            Console.WriteLine("Finished threads.");
+            Assert.IsTrue(!passed.Contains(false));
         }
 
-        int TestOnce(int thread_num)
+        int TenTimesDirectionToMorePosts_OneIteration (int thread_num)
         {
-            Console.WriteLine(thread_num);
+            Console.WriteLine("\t{0}", thread_num);
             string more_posts_path = @"//*[@id=""aktualnosci_biale""]/div/div/div/div/div[4]/div/div/a";
 
+            // declare new driver and go to same url as main
             IWebDriver new_driver;
             var chromeOptions = new ChromeOptions();
-            //chromeOptions.AddArguments("headless");
+            chromeOptions.AddArguments("headless");
             new_driver = new ChromeDriver(chromeOptions);
             new_driver.Url = driver.Url;
 
+            // move to link element
             IWebElement more_posts = new_driver.FindElement(By.XPath(more_posts_path));
             Actions action = new Actions(new_driver);
-            action.MoveToElement(more_posts).Click().Build().Perform();
+            action.MoveToElement(more_posts);
+
+            // start timer
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
+            // click element
+            action.Click().Build().Perform();
             Console.WriteLine(new_driver.Url);
 
-            new_driver.Close();
-            return 1;
+            // stop and see timer
+            watch.Stop();
+            var elapsed_time_s = (int)(watch.ElapsedMilliseconds / 1000);
 
-            // TODO: count and return elapsed time, thread everything
+            new_driver.Close();
+            Console.WriteLine("s: {0}\tms: {1}", elapsed_time_s, watch.ElapsedMilliseconds);
+            return elapsed_time_s;
         }
     }
 }
